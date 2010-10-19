@@ -1,2 +1,11 @@
-This are my vim settings. I put them here with the intention of copying them
-from a machine to another.
+These are my vim settings. Based on an article from vimcasts.org (see: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/)
+I decided that it's a good ideea to store my vim settings file and also the plugins I use in github. This allows me to use the same settings when I move
+from one machine to another.
+
+In order to make things work, assumming that you have a fresh install of vim the following should be done:
+1) install the pathogen plugin
+2) create a .vim folder in your home directory
+3) clone this repository
+4) make a symbolic lynk to ~/.vim/_vimrc in your home directory
+
+For more details check Drews screencast (link provided above).
