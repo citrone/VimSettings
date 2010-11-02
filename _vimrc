@@ -11,10 +11,15 @@ set hidden
 set lazyredraw        " don't update the display while executing macros
 set showmode          " show yourself what mode you're in
 set wildmenu          " enable enhanced command-line completion
+set cursorline        " enable showing the cursor line
 colors breeze         " set color set
 set vb                " turn off the bell
 set stl=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n\ [%b][0x%B]
 set guioptions=ac
+
+" Enable old style of cut/copy and paste
+set selectmode=key
+set keymodel=startsel
 
 " Map some keys to edit this file and to source it as well
 nmap <silent> ,ev :e $MYVIMRC<cr>
