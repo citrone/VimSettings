@@ -15,6 +15,7 @@ set cursorline        " enable showing the cursor line
 colors breeze         " set color set
 set vb                " turn off the bell
 set stl=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n\ [%b][0x%B]
+" Set the GUI to disable menu
 set guioptions=ac
 
 " Enable old style of cut/copy and paste
