@@ -1,52 +1,49 @@
-" Enable pathogen module
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-" Basic settings as described by Derek Wyatt
-set nocompatible      " forget about compatibility with vi ( this is vim!!! )
-filetype on           " get that filetype stuff happening
-filetype plugin on
-filetype indent on
-syntax on             " turn on syntax highlighting
-set hidden
-set lazyredraw        " don't update the display while executing macros
-set showmode          " show yourself what mode you're in
-set wildmenu          " enable enhanced command-line completion
-set cursorline        " enable showing the cursor line
-colors breeze         " set color set
-set vb                " turn off the bell
-set stl=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n\ [%b][0x%B]
-" Set the GUI to disable menu
-set guioptions=ac
+" pathogen module
+call pathogen#infect()
 
-" Enable old style of cut/copy and paste
-set selectmode=key
-set keymodel=startsel
+" vim general settings
+colorscheme mustang           " set colorset to mustang
+syntax on                     " enable syntax highlighting 
+filetype plugin indent on     " indent on
+set number                    " show line number
+set nocompatible              " forget about compatibility with vim
+set nowrap                    " don't wrap lines
+set tabstop=2                 " tabs are 2 spaces
+set shiftwidth=2              " number of spaces for autoindenting
+set expandtab                 " replace tab characters with spaces
+set shiftround                " use multiple of shifwidth
+set smarttab                  " insert tabs at the start of a line
+set autoindent                " enable autoindentation
+set copyindent                " copy indentation
+set showmatch                 " show matching paranthesis
+set ignorecase                " ignore case when searching
+set smartcase                 " ignore case on searching when all lowercase
+set hlsearch                  " highilight search terms
+set incsearch                 " show search matches as you type
+set visualbell                " don't beep
+set noerrorbells              " don't beep even on error
+set history=1000              " remember more commands and search history
+set undolevels=1000           " use more levels of undo
+set nobackup                  " do not let vim write a backup file
+set noswapfile                " and neither a swapfile
+                              " highlight white characters
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
-" Map some keys to edit this file and to source it as well
-nmap <silent> ,ev :e $MYVIMRC<cr>
-nmap <silent> ,sv :so $MYVIMRC<cr>
-nmap <F2> :NERDTreeToggle<cr>
-nmap <C-Tab> :tabn<cr>
-nmap <C-S-Tab> :tabp<cr>
-nmap <C-x> :tabc<cr>
-
-" Code editing options
-set nowrap
-set tabstop=2 softtabstop =2 shiftwidth=2 expandtab
-set autoindent
-set cindent
-set number
-set hlsearch
+set statusline=%-150.f%-10.20y\ Line:%l\ of\ %L\ Col:\ %c%100.P
 set laststatus=2
-set ofu=syntaxcomplete#Complete
 
-" Highlight the end of selection
-set nocp
-set cpoptions+=$
+" key mapping
+let mapleader=","             " remap leader key
+                              " open and source the .vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" Set the desired font and size for the vim window
-if has('gui_running')
-  set guifont=Courier_New:h9
-  set lines=60 columns=200
-endif
+" GUI settings
+set guifont=Consolas:h10      " a nice font
+set lines=50 columns=150      " window height and width
 
+" TagList initialization
+let Tlist_Ctags_Cmd = 'D:\ctags.exe'
+let g:tagbar_ctags_bin = 'D:\ctags.exe'
+nmap <silent> <F3> :TlistToggle<CR>
